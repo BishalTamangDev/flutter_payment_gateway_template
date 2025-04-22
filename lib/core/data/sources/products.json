@@ -1,0 +1,37 @@
+[
+  {
+    "id": "1",
+    "name": "apple",
+    "price": 10.0,
+    "stock": 5,
+    "quantity": 0
+  },
+  {
+    "id": "2",
+    "name": "banana",
+    "price": 20.0,
+    "stock": 10,
+    "quantity": 0
+  },
+  {
+    "id": "3",
+    "name": "carrot",
+    "price": 30.0,
+    "stock": 15,
+    "quantity": 0
+  },
+  {
+    "id": "4",
+    "name": "dumplings",
+    "price": 40.0,
+    "stock": 20,
+    "quantity": 0
+  },
+  {
+    "id": "5",
+    "name": "egg curry",
+    "price": 50.0,
+    "stock": 25,
+    "quantity": 0
+  }
+]

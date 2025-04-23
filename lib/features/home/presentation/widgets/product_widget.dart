@@ -22,25 +22,11 @@ class ProductWidget extends StatelessWidget {
                 spacing: 8.0,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    "${product.name}",
-                    style: Theme.of(context).textTheme.titleLarge,
-                  ),
-                  Opacity(
-                    opacity: 0.6,
-                    child: Text(
-                      "Only ${product.stock ?? 0} left.",
-                      style: Theme.of(context).textTheme.bodyMedium,
-                    ),
-                  ),
+                  Text("${product.name}", style: Theme.of(context).textTheme.titleLarge),
+                  Opacity(opacity: 0.6, child: Text("Only ${product.stock ?? 0} left.", style: Theme.of(context).textTheme.bodyMedium)),
                 ],
               ),
-              Text(
-                "\$${product.price}",
-                style: Theme.of(
-                  context,
-                ).textTheme.titleLarge!.copyWith(color: Colors.green.shade500),
-              ),
+              Text("\$${product.price}", style: Theme.of(context).textTheme.titleLarge!.copyWith(color: Colors.green.shade500)),
             ],
           ),
         ),

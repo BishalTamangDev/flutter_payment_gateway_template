@@ -1,13 +1,7 @@
 import 'package:payment_gateways_template/core/business/entities/product_entity.dart';
 
 class ProductModel extends ProductEntity {
-  ProductModel({
-    required super.id,
-    required super.name,
-    required super.price,
-    required super.stock,
-    required super.quantity,
-  });
+  ProductModel({required super.id, required super.name, required super.price, required super.stock, required super.quantity});
 
   // from json
   factory ProductModel.fromJson(Map<String, dynamic> json) {
@@ -21,33 +15,16 @@ class ProductModel extends ProductEntity {
   }
 
   // to json
-  Map<String, dynamic> toJson() => {
-    'id': id,
-    'name': name,
-    'price': price,
-    'quantity': quantity,
-  };
+  Map<String, dynamic> toJson() => {'id': id, 'name': name, 'price': price, 'quantity': quantity};
 
   // from entity
-  factory ProductModel.fromEntity(ProductEntity entity) => ProductModel(
-    id: entity.id,
-    name: entity.name,
-    price: entity.price,
-    stock: entity.stock,
-    quantity: entity.quantity,
-  );
+  factory ProductModel.fromEntity(ProductEntity entity) =>
+      ProductModel(id: entity.id, name: entity.name, price: entity.price, stock: entity.stock, quantity: entity.quantity);
 
   // to entity
-  ProductEntity toEntity() => ProductEntity(
-    id: id,
-    name: name,
-    price: price,
-    stock: stock,
-    quantity: quantity,
-  );
+  ProductEntity toEntity() => ProductEntity(id: id, name: name, price: price, stock: stock, quantity: quantity);
 
   // to string
   @override
-  String toString() =>
-      "ProductModel{id: $id, name: $name, price: $price, stock: $stock, quantity: $quantity}";
+  String toString() => "ProductModel{id: $id, name: $name, price: $price, stock: $stock, quantity: $quantity}";
 }

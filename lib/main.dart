@@ -7,7 +7,6 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   // load env file
-  // await dotenv.load();
   await dotenv.load(fileName: '.env');
 
   // set orientation

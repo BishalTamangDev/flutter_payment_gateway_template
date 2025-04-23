@@ -25,13 +25,7 @@ class AppRouter {
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text("Page Not Found"),
-              OutlinedButton(
-                onPressed: () => context.pop(),
-                child: const Text("Go Back"),
-              ),
-            ],
+            children: [Text("Page Not Found"), OutlinedButton(onPressed: () => context.pop(), child: const Text("Go Back"))],
           ),
         ),
       );

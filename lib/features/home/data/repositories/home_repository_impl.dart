@@ -13,9 +13,7 @@ class HomeRepositoryImpl implements HomeRepository {
   Future<Either<Failure, List<ProductEntity>>> fetchProducts() async {
     try {
       // fetch products
-      final String jsonString = await rootBundle.loadString(
-        'lib/core/data/sources/products.json',
-      );
+      final String jsonString = await rootBundle.loadString('lib/core/data/sources/products.json');
 
       final List<dynamic> jsonData = jsonDecode(jsonString);
 

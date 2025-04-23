@@ -33,11 +33,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Products"),
-        elevation: 0,
-        centerTitle: true,
-      ),
+      appBar: AppBar(title: const Text("Products"), elevation: 0, centerTitle: true),
       body: SafeArea(
         child: SingleChildScrollView(
           child: FutureBuilder<Either<Failure, List<ProductEntity>>>(
@@ -57,9 +53,7 @@ class _HomePageState extends State<HomePage> {
                         itemCount: data.length,
                         shrinkWrap: true,
                         physics: const NeverScrollableScrollPhysics(),
-                        itemBuilder:
-                            (context, index) =>
-                                ProductWidget(product: data[index]),
+                        itemBuilder: (context, index) => ProductWidget(product: data[index]),
                       );
                     },
                   );

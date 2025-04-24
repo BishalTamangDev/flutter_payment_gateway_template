@@ -31,15 +31,15 @@ class EsewaService {
 
           completer.complete(
             Right({
-              'message': result.message ?? '',
-              'productId': result.productId ?? '',
-              'totalAmount': result.totalAmount ?? '',
-              'refId': result.refId ?? '',
-              'code': result.code ?? '',
-              'date': result.date ?? DateTime.now(),
+              'message': result.message,
+              'productId': result.productId,
+              'totalAmount': result.totalAmount,
+              'refId': result.refId,
+              'merchantName': result.merchantName,
+              'code': result.code,
+              'date': result.date,
             }),
           );
-          // verifyTransactionStatus(result);
         },
         onPaymentFailure: (EsewaPaymentFailure data) {
           debugPrint("ESEWA FAILURE :: $data");
@@ -56,7 +56,4 @@ class EsewaService {
     }
     return await completer.future;
   }
-
-  // verify
-  void verifyTransactionStatus(EsewaPaymentSuccessResult result) async {}
 }

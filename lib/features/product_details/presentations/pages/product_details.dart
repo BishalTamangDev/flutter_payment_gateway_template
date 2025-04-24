@@ -1,14 +1,13 @@
-import 'package:dartz/dartz.dart' hide State;
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:payment_gateways_template/core/business/entities/product_entity.dart';
-import 'package:payment_gateways_template/core/data/services/esewa_service.dart';
-import 'package:payment_gateways_template/core/error/failures/failures.dart';
+import 'package:payment_gateways_template/core/data/models/user_model.dart';
+
+import '../../../../core/data/models/product_model.dart';
 
 class ProductDetails extends StatefulWidget {
   const ProductDetails({super.key, required this.product});
 
-  final ProductEntity product;
+  final ProductModel product;
 
   @override
   State<ProductDetails> createState() => _ProductDetailsState();
@@ -92,45 +91,12 @@ class _ProductDetailsState extends State<ProductDetails> {
                               itemBuilder: (context, index) {
                                 return InkWell(
                                   onTap: () async {
+                                    final Map<String, dynamic> data = {'user': UserModel(id: '1', name: 'bishal tamang'), 'product': widget.product};
+                                    context.pop();
                                     if (paymentGateways[index]['name'].toString().toLowerCase() == 'esewa') {
-                                      final EsewaService service = EsewaService();
-                                      final Either<Failure, Map<String, dynamic>> response = await service.pay(widget.product, '123');
-                                      if (!context.mounted) return;
-                                      context.pop();
-
-                                      response.fold(
-                                        (failure) {
-                                          debugPrint("FINAL FAILURE RESPONSE :: ${failure.message}");
-                                          showDialog(
-                                            context: context,
-                                            builder: (context) => AlertDialog(title: const Text("Payment failure!"), content: Text(failure.message)),
-                                          );
-                                        },
-                                        (data) {
-                                          debugPrint("FINAL SUCCESS RESPONSE :: $data");
-                                          showDialog(
-                                            context: context,
-                                            builder: (context) {
-                                              return AlertDialog(
-                                                title: const Text("Payment successful!"),
-                                                content: Column(
-                                                  spacing: 16.0,
-                                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                                  mainAxisSize: MainAxisSize.min,
-                                                  children: [
-                                                    Text("Product Id: ${data['productId']}"),
-                                                    Text("Total amount: ${data['totalAmount']}"),
-                                                    Text("Ref Id: ${data['refId']}"),
-                                                    Text("Code: ${data['code']}"),
-                                                    Text("Date: ${data['date']}"),
-                                                  ],
-                                                ),
-                                                actions: [OutlinedButton(onPressed: () => context.pop(), child: const Text("Great!"))],
-                                              );
-                                            },
-                                          );
-                                        },
-                                      );
+                                      context.push('/payment-gateways/esewa', extra: data);
+                                    } else if (paymentGateways[index]['name'].toString().toLowerCase() == 'khalti') {
+                                      context.push('/payment-gateways/khalti', extra: data);
                                     }
                                   },
                                   child: Card(

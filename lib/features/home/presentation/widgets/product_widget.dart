@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:payment_gateways_template/core/business/entities/product_entity.dart';
+import 'package:payment_gateways_template/core/data/models/product_model.dart';
 
 class ProductWidget extends StatelessWidget {
   const ProductWidget({super.key, required this.product});
 
-  final ProductEntity product;
+  final ProductModel product;
 
   @override
   Widget build(BuildContext context) {

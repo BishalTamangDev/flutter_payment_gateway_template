@@ -19,6 +19,7 @@ dependencies:
   esewa_flutter_sdk:
     path: ./external_sdk/esewa_flutter_sdk
   flutter_dotenv: ^5.2.1
+  khalti_flutter: ^3.0.0
 
 flutter_launcher_icons:
   android: true
